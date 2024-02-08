@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid black;
+            width: 25%;
+            height: 500px;
+            margin: auto;
+            position: relative;
+        }
+        #message{
+            /* border: 2px solid black; */
+            width: 95%;
+            height: 60%;
+            background-color: #1FA15B;
+            position: absolute;
+            top: 0;
+            color: white;
+            font-size: 18px;
+            font-weight: bolder;
+            text-align: center;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div></div>
+
+</body>
+</html>
+
+<script>
+
+    let paymentStatus = true
+    let paymentpage = new Promise(function(resolve, reject){
+        setTimeout(function(){
+            
+            if(paymentStatus){
+                resolve("payment Successful")
+            }
+
+        },3000)
+    })
+
+    let container = document.querySelector("div")
+    container.addEventListener("click", function(){
+        container.innerHTML = ""
+        paymentpage
+        .then(function(res){
+            let para = document.createElement("p")
+            para.id = "message"
+            para.innerText = "Payment Successful"
+            container.append(para)
+        })
+    })
+
+
+</script>
